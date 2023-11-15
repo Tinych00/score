@@ -27,6 +27,11 @@
             font-size: 16px;
             margin-top: 10px;
         }
+
+        #passScore, #failScore {
+            font-size: 16px;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -39,6 +44,8 @@
 <p>Current Question: <span id="currentQuestion">1</span></p>
 <p id="result">Pass Percentage: 0%</p>
 <p id="totalQuestionsAnswered">Total Questions Answered: 0</p>
+<p id="passScore">Pass: 0</p>
+<p id="failScore">Fail: 0</p>
 
 <script>
     let passCount = 0;
@@ -62,8 +69,14 @@
         document.getElementById('currentQuestion').innerText = currentQuestion;
         document.getElementById('result').innerText = `Pass Percentage: ${passPercentage.toFixed(2)}%`;
         document.getElementById('totalQuestionsAnswered').innerText = `Total Questions Answered: ${currentQuestion - 1}`;
+        document.getElementById('passScore').innerText = `Pass Score: ${passCount}`;
+        document.getElementById('failScore').innerText = `Fail Score: ${failCount}`;
     }
 </script>
+
+</body>
+</html>
+
 
 </body>
 </html>
