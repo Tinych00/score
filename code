@@ -23,12 +23,17 @@
             margin-top: 20px;
         }
 
-        #totalQuestionsAnswered {
+        #scoreContainer {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        #passScore, #failScore {
             font-size: 16px;
             margin-top: 10px;
         }
 
-        #passScore, #failScore {
+        #totalQuestionsAnswered {
             font-size: 16px;
             margin-top: 10px;
         }
@@ -41,11 +46,14 @@
 <button onclick="recordResult(true)">Pass</button>
 <button onclick="recordResult(false)">Fail</button>
 
+<div id="scoreContainer">
+    <p id="passScore">Pass: 0</p>
+    <p id="failScore">Fail: 0</p>
+</div>
+
 <p>Current Question: <span id="currentQuestion">1</span></p>
 <p id="result">Pass Percentage: 0%</p>
 <p id="totalQuestionsAnswered">Total Questions Answered: 0</p>
-<p id="passScore">Pass: 0</p>
-<p id="failScore">Fail: 0</p>
 
 <script>
     let passCount = 0;
@@ -69,14 +77,11 @@
         document.getElementById('currentQuestion').innerText = currentQuestion;
         document.getElementById('result').innerText = `Pass Percentage: ${passPercentage.toFixed(2)}%`;
         document.getElementById('totalQuestionsAnswered').innerText = `Total Questions Answered: ${currentQuestion - 1}`;
-        document.getElementById('passScore').innerText = `Pass Score: ${passCount}`;
-        document.getElementById('failScore').innerText = `Fail Score: ${failCount}`;
+        document.getElementById('passScore').innerText = `Pass: ${passCount}`;
+        document.getElementById('failScore').innerText = `Fail: ${failCount}`;
     }
 </script>
 
 </body>
 </html>
 
-
-</body>
-</html>
