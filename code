@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Score </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        button {
+            font-size: 16px;
+            padding: 10px 20px;
+            margin: 10px;
+        }
+
+        #result {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Score Results</h1>
+
+<button onclick="recordResult(true)">Pass</button>
+<button onclick="recordResult(false)">Fail</button>
+
+<p>Total Questions: <span id="totalQuestions">0</span></p>
+<p id="result">Pass Percentage: 0%</p>
+
+<script>
+    let passCount = 0;
+    let failCount = 0;
+
+    function recordResult(isPass) {
+        if (isPass) {
+            passCount++;
+        } else {
+            failCount++;
+        }
+
+        updateDisplay();
+    }
+
+    function updateDisplay() {
+        const totalQuestions = passCount + failCount;
+        const passPercentage = totalQuestions > 0 ? (passCount / totalQuestions) * 100 : 0;
+
+        document.getElementById('totalQuestions').innerText = totalQuestions;
+        document.getElementById('result').innerText = `Pass Percentage: ${passPercentage.toFixed(2)}%`;
+    }
+</script>
+
+</
